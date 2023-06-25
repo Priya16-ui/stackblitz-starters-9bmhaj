@@ -1,30 +1,48 @@
 // Sample student data
-const students = [
-  { name: 'Priya', chemistryMarks: 80, biologyMarks: 90, dob: '10-05-2000' },
-  { name: 'Lavanya', chemistryMarks: 70, biologyMarks: 80, dob: '15-07-2001' },
-  { name: 'vel', chemistryMarks: 90, biologyMarks: 85, dob: '05-03-2000' },
-  { name: 'Isai', chemistryMarks: 85, biologyMarks: 90, dob: '12-09-2000' },
+let testCase1 = [
+  {
+    name: 'Leo Messi',
+    dob: '31-12-1995',
+    biology: 95,
+    chemistry: 91,
+  },
+  {
+    name: 'Cristiano Ronaldo',
+    dob: '31-05-1992',
+    biology: 90,
+    chemistry: 81,
+  },
+  {
+    name: 'Virat Kohli',
+    dob: '31-12-1995',
+    biology: 95,
+    chemistry: 96,
+  },
+  {
+    name: 'Rohit Sharma',
+    dob: '31-12-1995',
+    biology: 85,
+    chemistry: 86,
+  },
+  {
+    name: 'Viswanathan Anand',
+    dob: '12-12-1994',
+    biology: 99,
+    chemistry: 10,
+  },
 ];
 
 // Sorting function
-const sortStudents = (students) => {
-  students.sort((a, b) => {
-    // Rule 1: Sort by total marks
-    if (
-      a.chemistryMarks + a.biologyMarks !==
-      b.chemistryMarks + b.biologyMarks
-    ) {
-      return (
-        b.chemistryMarks + b.biologyMarks - (a.chemistryMarks + a.biologyMarks)
-      );
+const sortStudents = (testCase1) => {
+  testCase1.sort((a, b) => {
+    if (a.chemistry + a.biology !== b.chemistry + b.biology) {
+      return b.chemistry + b.biology - (a.chemistry + a.biology);
     }
 
-    // Rule 2: Sort by biology marks
-    if (a.biologyMarks !== b.biologyMarks) {
-      return b.biologyMarks - a.biologyMarks;
+    if (a.biology !== b.biology) {
+      return b.biology - a.biology;
     }
 
-    // Rule 3: Sort by date of birth (assuming date format is DD-MM-YYYY)
     const [aDay, aMonth, aYear] = a.dob.split('-').map(Number);
     const [bDay, bMonth, bYear] = b.dob.split('-').map(Number);
 
@@ -38,8 +56,5 @@ const sortStudents = (students) => {
   });
 };
 
-// Call the sorting function
-sortStudents(students);
-
-// Print the sorted students
-console.log(students);
+sortStudents(testCase1);
+console.log(testCase1);
